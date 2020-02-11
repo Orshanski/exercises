@@ -1,5 +1,4 @@
-infile = open(
-    'data/BoyNames', 'r')
+infile = open('data/BoyNames', 'r')
 boy_names = infile.readlines()
 infile.close()
 
