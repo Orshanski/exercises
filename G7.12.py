@@ -4,8 +4,7 @@ def simple(number):
     else:
         return False
 
-n = input('Введите число: ')
-n = int(n)
+n = int(input('Введите число: '))
 
 simple_number = {0:False}
 
@@ -16,7 +15,7 @@ i = 2
 
 while (i ** 2) < n:
     k = 2
-    while  i * k <= n:
+    while i * k <= n:
         simple_number[i * k] = False
         k += 1
     i += 1
