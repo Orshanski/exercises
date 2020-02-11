@@ -3,8 +3,7 @@ solution = ['A', 'C', 'A', 'A', 'D',
             'A', 'D', 'C', 'A', 'D',
             'C', 'B', 'B', 'D', 'A']
 infile = open(
-    'C:\\Users\\aorshanskiy\\OneDrive\\Books\\Гэддис. Начинаем программировать на Python\\data\\Решения задач по программированию\\Глава 07\\data\\student_solution.txt',
-    'r')
+    'data/student_solution', 'r')
 answers = infile.readlines()
 infile.close()
 

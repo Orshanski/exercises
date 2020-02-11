@@ -1,4 +1,4 @@
-infile = open('C:\\Users\\aorshanskiy\\OneDrive\\Books\\Гэддис. Начинаем программировать на Python\\data\\Исходный код\\Глава 07\\charge_accounts.txt', 'r')
+infile = open('data/charge_accounts', 'r')
 accounts = infile.readlines()
 infile.close()
 
