@@ -1,12 +1,13 @@
 def simple(number):
-    if simple_number[number] == True:
+    if simple_number[number]:
         return True
     else:
         return False
 
+
 n = int(input('Введите число: '))
 
-simple_number = {0:False}
+simple_number = {0: False}
 
 for index in range(n):
     simple_number[index + 1] = True
