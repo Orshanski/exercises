@@ -1,4 +1,4 @@
-infile = open('../Data/BoyNames', 'r')
+infile = open('Data/BoyNames', 'r')
 boy_names = infile.readlines()
 infile.close()
 
@@ -8,7 +8,7 @@ for name in boy_names:
     index += 1
 
 infile = open(
-    '../Data/GirlNames', 'r')
+    'Data/GirlNames', 'r')
 
 girl_names = infile.readlines()
 infile.close()

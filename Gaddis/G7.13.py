@@ -1,6 +1,6 @@
 import random
 
-infile = open('../Data/Ball_responses', 'r', encoding='utf-8')
+infile = open('Data/Ball_responses', 'r', encoding='utf-8')
 ball_responses = infile.readlines()
 infile.close()
 

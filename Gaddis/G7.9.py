@@ -1,4 +1,4 @@
-infile = open('../Data/USPopulation', 'r')
+infile = open('Data/USPopulation', 'r')
 population_str = infile.readlines()
 infile.close()
 

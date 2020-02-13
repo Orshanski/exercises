@@ -1,4 +1,4 @@
-infile = open('../Data/charge_accounts', 'r')
+infile = open('Data/charge_accounts', 'r')
 accounts = infile.readlines()
 infile.close()
 
