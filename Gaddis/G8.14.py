@@ -29,8 +29,8 @@ for element in prices:
     price = float(element[11:len(element)])
     prices_list.append([day, month, year, price])
 
-'''
 # рассчитываем среднюю цену за год
+print('Расчет средней цены за год')
 average_prices_in_year = []
 for year in range(1993, 2014):
     price_sum = 0
@@ -44,9 +44,11 @@ for year in range(1993, 2014):
 
 for element in average_prices_in_year:
     print(f'Средняя цена в {element[0]} составила ${element[1]:.2f}')
-'''
+print('---------------------------------------------------------------------------------------------------------------')
+print()
 
 # рассчитываем среднюю стоимость за месяц в каждом году
+print('Расчет средней цены за месяц')
 average_prices_in_month = []
 for year in range(1993, 2014):
     for month in range(1, 13):
@@ -64,7 +66,9 @@ for year in range(1993, 2014):
 
 for element in average_prices_in_month:
     if not element[2] == 'Нет данных':
-        print(f'В {number_to_month(element[1])} {element[0]} года средняя стоимость топлива составила ${element[2]:.2f}.')
+        print(f'В {number_to_month(element[1])} {element[0]} года средняя стоимость топлива составила ${element[2]:.2f}')
+print('---------------------------------------------------------------------------------------------------------------')
+print()
 
 # TODO Наибольшая и наименьшая цена в году
 
