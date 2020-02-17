@@ -1,4 +1,4 @@
-infile = open('Data/text', 'r')
+infile = open('../Data/text', 'r')
 text = infile.readlines()
 infile.close()
 

@@ -14,7 +14,7 @@ def number_to_month(number):
     elif number == 12: return 'декабре'
 
 
-infile = open('Data/GasPrice', 'r')
+infile = open('../Data/GasPrice', 'r')
 prices = infile.read()
 infile.close()
 
@@ -119,8 +119,8 @@ while not len(prices_list) == 0:
             min_index = index
     new_price_list.append(prices_list.pop(min_index))
 
-low_to_high = open('Data/low_to_high', 'w')
-high_to_low = open('Data/high_to_low', 'w')
+low_to_high = open('../Data/low_to_high', 'w')
+high_to_low = open('../Data/high_to_low', 'w')
 new_string = ''
 for element in new_price_list:
     if len(str(element[0])) > 1:

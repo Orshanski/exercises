@@ -1,4 +1,4 @@
-infile = open('Data/WorldSeriesWinners', 'r')
+infile = open('../Data/WorldSeriesWinners', 'r')
 ws_winners = infile.readlines()
 infile.close()
 

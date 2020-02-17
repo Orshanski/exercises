@@ -24,7 +24,7 @@ def find_numbers(number_set, increase):
             print((numbers_count[index])[0])
 
 
-infile = open('Data/pbnumbers', 'r')
+infile = open('../Data/pbnumbers', 'r')
 numbers_set = infile.read()
 infile.close()
 

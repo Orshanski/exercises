@@ -2,7 +2,7 @@ solution = ['A', 'C', 'A', 'A', 'D',
             'B', 'C', 'A', 'C', 'B',
             'A', 'D', 'C', 'A', 'D',
             'C', 'B', 'B', 'D', 'A']
-infile = open('Data/student_solution', 'r')
+infile = open('../Data/student_solution', 'r')
 answers = infile.readlines()
 infile.close()
 
