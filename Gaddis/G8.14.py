@@ -30,7 +30,9 @@ for element in prices:
     prices_list.append([day, month, year, price])
 
 # рассчитываем среднюю цену за год
+print('--------------------------------------------------------------------------------------------------------------')
 print('Расчет средней цены за год')
+print()
 average_prices_in_year = []
 for year in range(1993, 2014):
     price_sum = 0
@@ -45,10 +47,10 @@ for year in range(1993, 2014):
 for element in average_prices_in_year:
     print(f'Средняя цена в {element[0]} составила ${element[1]:.2f}')
 print('---------------------------------------------------------------------------------------------------------------')
-print()
 
 # рассчитываем среднюю стоимость за месяц в каждом году
 print('Расчет средней цены за месяц')
+print()
 average_prices_in_month = []
 for year in range(1993, 2014):
     for month in range(1, 13):
@@ -68,8 +70,42 @@ for element in average_prices_in_month:
     if not element[2] == 'Нет данных':
         print(f'В {number_to_month(element[1])} {element[0]} года средняя стоимость топлива составила ${element[2]:.2f}')
 print('---------------------------------------------------------------------------------------------------------------')
+
+# Находим наибольшую и наименьшую цену в году
+print('Расчет наименьшей и наибольшей цены в году')
 print()
+min_price_in_year = {}
+max_price_in_year = {}
 
-# TODO Наибольшая и наименьшая цена в году
+# Заполняем словари первичными значениями, взяв за минимальную и максимальную цену первую цену в году.
+# Второе значение - индекс минимальной цены в году в общем листе цен.
+for year in range(1993, 2014):
+    for index in range(len(prices_list)):
+        if prices_list[index][2] == year:
+            min_price_in_year[year] = [prices_list[index][3], index]
+            max_price_in_year[year] = [prices_list[index][3], index]
+            break
 
-# TODO Список цен, упорядоченный по возрастанию
+
+for year in range(1993, 2014):
+    min_price = min_price_in_year[year][0]
+    min_index = min_price_in_year[year][1]
+    max_price = max_price_in_year[year][0]
+    max_index = max_price_in_year[year][1]
+    for index in range(len(prices_list)):
+        if prices_list[index][2] == year:
+            if min_price > prices_list[index][3]:
+                min_price = prices_list[index][3]
+                min_index = index
+            if max_price < prices_list[index][3]:
+                max_price = prices_list[index][3]
+                max_index = index
+    min_price_in_year[year] = prices_list[min_index]
+    max_price_in_year[year] = prices_list[max_index]
+
+
+for year in range(1993, 2014):
+    print(f'В {min_price_in_year[year][2]} минимальная цена топлива была ${min_price_in_year[year][3]:.2f}, а '
+          f'максимальная - ${max_price_in_year[year][3]:.2f}')
+
+#TODO Список цен, упорядоченный по возрастанию
