@@ -22,6 +22,13 @@ def create_deck():
     return deck
 
 
+def sum_of_the_hand(hand):
+    try:
+        return sum(list(zip(*hand))[1])
+    except IndexError:
+        return 0
+
+
 my_deck = create_deck()
 # my_deck =[['Туз пик', 11], ['Туз бубей', 11], ['10 треф', 10]]
 wins = []
@@ -37,15 +44,10 @@ while len(my_deck) > 0:
         name = new_card[0]
         cost = new_card[1]
         print(f'Дилер берет {name}')
-        try:
-            sum_of_the_hand = sum(list(zip(*dealer_hand))[1])
-        except IndexError:
-            sum_of_the_hand = 0
-        if name in ['Туз пик', 'Туз треф', 'Туз бубей', 'Туз червей'] and (sum_of_the_hand + cost) >= 21:
+        if name in ['Туз пик', 'Туз треф', 'Туз бубей', 'Туз червей'] and (sum_of_the_hand(dealer_hand) + cost) >= 21:
             cost = 1
         dealer_hand.append([name, cost])
-        sum_of_the_hand = sum(list(zip(*dealer_hand))[1])
-        if sum_of_the_hand > 21:
+        if sum_of_the_hand(dealer_hand) > 21:
             wins.append('player')
             print('Игрок выиграл')
             print('---------------------------------------------------------------------------------------------------')
@@ -58,15 +60,10 @@ while len(my_deck) > 0:
         name = new_card[0]
         cost = new_card[1]
         print(f'Игрок берет {name}')
-        try:
-            sum_of_the_hand = sum(list(zip(*player_hand))[1])
-        except IndexError:
-            sum_of_the_hand = 0
-        if name in ['Туз пик', 'Туз треф', 'Туз бубей', 'Туз червей'] and (sum_of_the_hand + cost) >= 21:
+        if name in ['Туз пик', 'Туз треф', 'Туз бубей', 'Туз червей'] and (sum_of_the_hand(player_hand) + cost) >= 21:
             cost = 1
         player_hand.append([name, cost])
-        sum_of_the_hand = sum(list(zip(*player_hand))[1])
-        if sum_of_the_hand > 21:
+        if sum_of_the_hand(player_hand) > 21:
             wins.append('dealer')
             print('Дилер выиграл')
             print('---------------------------------------------------------------------------------------------------')
