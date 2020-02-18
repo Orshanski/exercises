@@ -1,17 +1,10 @@
-def clear_text(text):
-    """Очищает слова в тексте от знаков препинания и дефисов"""
-    for index in range(len(text)):
-        text[index] = text[index].lower()
-        if text[index][-1] in ('.', '?', '!', '"', ','):
-            ch = text[index][-1]
-            text[index] = text[index].rstrip(ch)
-        if text[index][0] == '"':
-            text[index] = text[index].rstrip('"')
+import my_function as mf
 
-    while True:
-        try:
-            text.remove('-')
-        except:
-            break
+infile = open('../Data/wiedzmin', 'r', encoding='utf-8')
+text = infile.read()
 
-    return text
+text = text.split()
+text = mf.clear_text(text)
+
+unique_words = set(text)
+print(sorted(unique_words))
