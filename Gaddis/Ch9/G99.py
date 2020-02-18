@@ -30,43 +30,34 @@ def sum_of_the_hand(hand):
 
 
 my_deck = create_deck()
-# my_deck =[['Туз пик', 11], ['Туз бубей', 11], ['10 треф', 10]]
-wins = []
+losers = []
+players = ['Dealer', 'Alexey']
+players_hand = {}
 
 while len(my_deck) > 0:
-    dealer_hand = []
-    player_hand = []
-    while True:
-        try:
-            new_card = my_deck.pop(0)
-        except IndexError:
-            break
-        name = new_card[0]
-        cost = new_card[1]
-        print(f'Дилер берет {name}')
-        if name in ['Туз пик', 'Туз треф', 'Туз бубей', 'Туз червей'] and (sum_of_the_hand(dealer_hand) + cost) >= 21:
-            cost = 1
-        dealer_hand.append([name, cost])
-        if sum_of_the_hand(dealer_hand) > 21:
-            wins.append('player')
-            print('Игрок выиграл')
-            print('---------------------------------------------------------------------------------------------------')
-            break
+    players_hand.clear()
+    for player in players:
+        players_hand[player] = []
+    overload = False
+    while not overload:
+        for player in players:
+            try:
+                new_card = my_deck.pop(0)
+            except IndexError:
+                overload = True
+                print('Кончилась колода')
+                break
+            name = new_card[0]
+            cost = new_card[1]
+            print(f'{player} берет {name}')
+            if name in ['Туз пик', 'Туз треф', 'Туз бубей', 'Туз червей'] and (sum_of_the_hand(players_hand[player]) + cost) >= 21:
+                cost = 1
+            players_hand[player].append([name, cost])
+            if sum_of_the_hand(players_hand[player]) > 21:
+                overload = True
+                losers.append(player)
+                print(f'{player} проиграл')
+                print("--------------------------")
+                break
 
-        try:
-            new_card = my_deck.pop(0)
-        except IndexError:
-            break
-        name = new_card[0]
-        cost = new_card[1]
-        print(f'Игрок берет {name}')
-        if name in ['Туз пик', 'Туз треф', 'Туз бубей', 'Туз червей'] and (sum_of_the_hand(player_hand) + cost) >= 21:
-            cost = 1
-        player_hand.append([name, cost])
-        if sum_of_the_hand(player_hand) > 21:
-            wins.append('dealer')
-            print('Дилер выиграл')
-            print('---------------------------------------------------------------------------------------------------')
-            break
-
-print(wins)
+print(losers)
